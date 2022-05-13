@@ -1,8 +1,8 @@
 import requests
 import creds
 
-url = "https://nationalapi.docsumo.com/api/v1/national/extract/?side=back&save_data=false&return_redacted=false&fraud_check=true"
-file_path=r"C:\Users\BRBCO\Downloads\Aadhar Card_page.jpg"
+url = "https://panapi.docsumo.com/api/v1/pan/extract/?save_data=false&fraud_check=true"
+file_path=r"C:\Users\BRBCO\Downloads\pan-card-1.jpg"
 
 payload = {}
 files = [
@@ -15,3 +15,4 @@ headers = {
 response = requests.request("POST", url, headers=headers, data = payload, files = files)
 
 print(response.json())
+

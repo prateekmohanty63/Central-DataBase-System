@@ -1,16 +1,10 @@
 import requests
 
-url = "https://nationalapi.docsumo.com/api/v1/national/extract/?side=back&save_data=false&return_redacted=false&fraud_check=true"
-file_path=r"C:\Users\BRBCO\Downloads\Aadhar Card_page.jpg"
+url = "http://localhost:3000/digilocker/doc_type"
 
-payload = {}
-files = [
-  ('files', open(file_path,'rb'))
-]
-headers = {
-  'X-API-KEY': "TuCennjAaeYyJbAb00e4ZAFbpIwkgDYGwCgqnLT4dAT4uS6PohMi4tnnG4Ta",
-}
+payload = "{\n\t\"organssizationId\": \"001891\"\n}"
+headers = {}
 
-response = requests.request("POST", url, headers=headers, data = payload, files = files)
+response = requests.request("POST", url, headers=headers, data=payload)
 
-print(response.json())
+print(response.text)
